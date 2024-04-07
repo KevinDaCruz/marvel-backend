@@ -6,6 +6,8 @@ const axios = require("axios");
 
 const app = express();
 
+app.use(express.json());
+
 app.use(cors());
 
 app.get("/characters", async (req, res) => {
@@ -53,7 +55,7 @@ app.get("/comics/:characterId", async (req, res) => {
 });
 
 app.all("*", (req, res) => {
-  console.log("Je suis bien dans la route all");
+  // console.log("Je suis bien dans la route all");
   res.status(404).json({ message: "Page not found !" });
 });
 
